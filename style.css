@@ -53,15 +53,15 @@ body {
     background-color: #c0c0c0;
 }
 
-.draggable-list .person-name {
+.draggable-list .country-name {
     margin: 0 20px 0 0;
 }
 
-.draggable-list li.right .person-name {
+.draggable-list li.right .country-name {
     color: #3ae374;
 }
 
-.draggable-list li.wrong .person-name {
+.draggable-list li.wrong .country-name {
     color: #ff3838;
 }
 

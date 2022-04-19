@@ -1,17 +1,17 @@
 const draggable_list = document.querySelector("#draggable-list");
 const check = document.querySelector("#check");
 
-const richestPeople = [
-  "Jeff Bezos",
-  "Bill Gates",
-  "Warren Buffett",
-  "Bernard Arnault",
-  "Carlos Slim Helu",
-  "Amancio Ortega",
-  "Larry Ellison",
-  "Mark Zuckerberg",
-  "Michael Bloomberg",
-  "Larry Page",
+const worldPopulation = [
+  "China",
+  "India",
+  "United States",
+  "Indonesia",
+  "Pakistan",
+  "Brazil",
+  "Nigeria",
+  "Bangladesh",
+  "Russia",
+  "Mexico",
 ];
 
 // Store listitems
@@ -30,11 +30,11 @@ createList();
 
 // Insert list items into DOM
 function createList() {
-  [...richestPeople]
+  [...worldPopulation]
     .map((a) => ({ value: a, sort: Math.random() }))
     .sort((a, b) => a.sort - b.sort)
     .map((a) => a.value)
-    .forEach((person, index) => {
+    .forEach((country, index) => {
       const listItem = document.createElement("li");
 
       listItem.setAttribute("data-index", index);
@@ -42,8 +42,8 @@ function createList() {
       listItem.innerHTML = `
             <span class="number">${index + 1}</span>
             <div class="draggable" draggable="true">
-                <p class="person-name">${person}</p>
-                <i class="fa fa-credit-card" aria-hidden="true"></i>
+                <p class="country-name">${country}</p>
+                <i class="fa fa-users" aria-hidden="true"></i>
             </div>
             `;
 
@@ -95,9 +95,9 @@ function swapItems(fromIndex, toIndex) {
 // Check the order of list items
 function checkOrder() {
   listItems.forEach((listItem, index) => {
-    const personName = listItem.querySelector(".draggable").innerText.trim();
+    const countryName = listItem.querySelector(".draggable").innerText.trim();
 
-    if (personName !== richestPeople[index]) {
+    if (countryName !== worldPopulation[index]) {
       listItem.classList.add("wrong");
     } else {
       listItem.classList.remove("wrong");
